@@ -1,0 +1,12 @@
+services:
+  mysql:
+    image: biarms/mysql:5
+    container_name: mysql
+    restart: always
+    platform: linux/arm64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: goexpert
+      MYSQL_PASSWORD: root
+    ports:
+      - 3306:3306
