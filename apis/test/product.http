@@ -1,0 +1,30 @@
+POST http://localhost:8000/products
+Content-Type: application/json
+
+{ 
+    "name": "Test Product",
+    "price": 100
+}
+
+###
+
+GET http://localhost:8000/products
+Authorization: Bearer token
+
+###
+
+DELETE http://localhost:8000/products/9811f52d-0ab2-46b9-9603-610d714a4456
+
+###
+
+GET http://localhost:8000/products/9811f52d-0ab2-46b9-9603-610d714a4456
+
+###
+
+PUT http://localhost:8000/products/9811f52d-0ab2-46b9-9603-610d714a4456
+Content-Type: application/json
+
+{ 
+    "name": "Test Updated Product",
+    "price": 200
+}
