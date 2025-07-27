@@ -28,3 +28,6 @@ go.work.sum
 .env
 **/**/*.out
 **/**/*.html
+tmp/
+**/tmp/**
+*.txt
