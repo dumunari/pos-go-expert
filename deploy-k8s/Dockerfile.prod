@@ -1,0 +1,13 @@
+FROM golang:latest as builder
+
+WORKDIR /app
+COPY . .
+# Build the Go application using ldflags to reduce binary size by omitting debug information
+# CGO_ENABLED=0 ensures no C dependencies are included, making the binary statically linked
+# GOOS=linux sets the target OS to Linux, which is suitable for deployment in a container
+RUN GOOS=linux CGO_ENABLED=0 go build -ldflags="-w -s" -o server .
+
+FROM scratch
+WORKDIR /app
+COPY --from=builder /app/server .
+CMD ["./server"]
